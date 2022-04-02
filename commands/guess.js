@@ -15,12 +15,16 @@ module.exports = {
         .setDescription("The game you want to guess the score of")
         .setRequired(true)
         .addChoice(
-          "Kirby and the Forgotten Land",
-          "kirbyandtheforgottenland|Kirby and the Forgotten Land"
+          "Weird West",
+          "weirdwest|Weird West"
         )
         .addChoice(
-          "Tiny Tina's Wonderlands",
-          "tinytinaswonderlands|Tiny Tina's"
+          "MLB The Show 22",
+          "mlbtheshow22|MLB The Show 22"
+        )
+        .addChoice(
+          "LEGO Star Wars: The Skywalker Saga",
+          "legostarwarstheskywalkersaga|LEGO Star Wars: The Skywalker Saga"
         )
     )
     .addIntegerOption((choice) =>

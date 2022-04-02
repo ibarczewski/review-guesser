@@ -23,13 +23,7 @@ module.exports = {
       "ghostwire.csv",
       `${user.nickname || user.username},${message.content}`,
       async () => {
-        await message.author.send("Guess registered!");
-
-        await channel.send(
-          `${
-            user.nickname || user.username
-          } has registered their guess! We now have 3 entrants for Elden Hearts.`
-        );
+        await message.author.send("Bot DMed. Tell Ian to stop doing this.");
       }
     );
   },
