@@ -1,9 +1,8 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const fs = require("fs");
-const dateFns = require("date-fns");
-const { title } = require("process");
+import { SlashCommandBuilder } from "@discordjs/builders";
+import fs from "fs";
+import * as dateFns from "date-fns";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("get-embargo")
     .setDescription("Gets the embargo for a game")
@@ -12,14 +11,8 @@ module.exports = {
         .setName("game")
         .setDescription("The name of the game")
         .setRequired(true)
-        .addChoice(
-          "Weird West",
-          "weirdwest|Weird West"
-        )
-        .addChoice(
-          "MLB The Show 22",
-          "mlbtheshow22|MLB The Show 22"
-        )
+        .addChoice("Weird West", "weirdwest|Weird West")
+        .addChoice("MLB The Show 22", "mlbtheshow22|MLB The Show 22")
         .addChoice(
           "LEGO Star Wars: The Skywalker Saga",
           "legostarwarstheskywalkersaga|LEGO Star Wars: The Skywalker Saga"
@@ -29,7 +22,6 @@ module.exports = {
     const [filename, gameTitle] = interaction.options
       .getString("game")
       .split("|");
-
 
     fs.readFile(`games/${filename}/embargo.csv`, "utf8", (err, data) => {
       if (err) {

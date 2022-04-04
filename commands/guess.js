@@ -1,11 +1,7 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { bold, italic } = require("@discordjs/builders");
-const fs = require("fs");
-const lineReplace = require("line-replace");
-const readline = require("readline");
-const title = "Ghostwire: Tokyo";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import fs from "fs";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("guess")
     .setDescription("Guess the score of a game")
@@ -14,14 +10,8 @@ module.exports = {
         .setName("game")
         .setDescription("The game you want to guess the score of")
         .setRequired(true)
-        .addChoice(
-          "Weird West",
-          "weirdwest|Weird West"
-        )
-        .addChoice(
-          "MLB The Show 22",
-          "mlbtheshow22|MLB The Show 22"
-        )
+        .addChoice("Weird West", "weirdwest|Weird West")
+        .addChoice("MLB The Show 22", "mlbtheshow22|MLB The Show 22")
         .addChoice(
           "LEGO Star Wars: The Skywalker Saga",
           "legostarwarstheskywalkersaga|LEGO Star Wars: The Skywalker Saga"

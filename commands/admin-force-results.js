@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { bold, italic } = require("@discordjs/builders");
-const fs = require("fs");
-const readline = require("readline");
-const _ = require("lodash");
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { bold, italic } from "@discordjs/builders";
+import fs from "fs";
+import readline from "readline";
+import * as _ from "lodash";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("admin-force-results")
     .setDescription("Get fake results")
@@ -16,7 +16,9 @@ module.exports = {
     ),
   async execute(interaction) {
     if (interaction.user.id !== "133783258071695360") {
-      await interaction.reply("Don't try that you dummy. Only Ian can do that.");
+      await interaction.reply(
+        "Don't try that you dummy. Only Ian can do that."
+      );
       return;
     } else {
       const filestream = fs.createReadStream("./games/weirdwest/score.csv");
@@ -41,9 +43,9 @@ module.exports = {
       const sortedGuesses = _.sortBy(guesses, "result");
       const mappedGuesses = sortedGuesses.reduce(
         (prev, curr, index) =>
-          `${prev}\n${index + 1}) ${index === 0 ? "👑" : ""} ${bold(curr.name)} ${
-            index === 0 ? "👑" : ""
-          }, ${curr.guess}, ${curr.trueResult}${
+          `${prev}\n${index + 1}) ${index === 0 ? "👑" : ""} ${bold(
+            curr.name
+          )} ${index === 0 ? "👑" : ""}, ${curr.guess}, ${curr.trueResult}${
             curr.trueResult === 0 ? ` - 🎉 ${bold("PERFECT GUESS")} 🎉` : ""
           }`,
         ""
@@ -55,7 +57,5 @@ module.exports = {
       await interaction.reply(embargoScore);
       return;
     }
-
-    
   },
 };

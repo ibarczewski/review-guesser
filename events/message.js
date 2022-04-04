@@ -1,6 +1,4 @@
 var fs = require("fs");
-var readline = require("readline");
-var lineReplace = require("line-replace");
 
 module.exports = {
   name: "message",
