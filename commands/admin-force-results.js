@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { bold, italic } from "@discordjs/builders";
+import { bold } from "@discordjs/builders";
 import fs from "fs";
 import readline from "readline";
 import * as _ from "lodash";
